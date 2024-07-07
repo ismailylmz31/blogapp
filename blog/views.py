@@ -9,6 +9,7 @@ def blogs(request):
     return render(request, "blog/blogs.html")
 
 
-def blog_details(request, id):
+def blog_details(request, slug):
+    blog = blog.objects.get(slug=slug)
     return render(request,"blog/blog_details.html",
-                  {"id":id})
+                  {"blog":blog})
